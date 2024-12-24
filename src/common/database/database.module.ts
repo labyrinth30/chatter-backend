@@ -1,6 +1,7 @@
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { ModelDefinition, MongooseModule } from '@nestjs/mongoose';
+import { DbMigrationService } from './db-migration.service';
 
 @Module({
   imports: [
@@ -11,6 +12,8 @@ import { ModelDefinition, MongooseModule } from '@nestjs/mongoose';
       inject: [ConfigService],
     }),
   ],
+  // DB 마이그레이션 서비스를 외부로 노출
+  providers: [DbMigrationService],
 })
 export class DatabaseModule {
   static forFeature(models: ModelDefinition[]): DynamicModule {
