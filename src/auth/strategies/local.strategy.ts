@@ -5,9 +5,7 @@ import { UsersService } from '../../users/users.service';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
-  constructor(
-    private readonly usersService: UsersService,
-  ) {
+  constructor(private readonly usersService: UsersService) {
     // username 대신 email을 사용하도록 설정
     // 비밀번호는 변경필요 없으니 오버라이드 하지 않음
     super({
