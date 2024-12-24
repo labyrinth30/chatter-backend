@@ -37,6 +37,7 @@ export abstract class AbstractRepository<T extends AbstractEntity> {
         new: true,
       })
       .lean<T>();
+
     if (!document) {
       this.logger.warn(`Document not found with filterQuery`, filterQuery);
       throw new NotFoundException(
@@ -48,6 +49,7 @@ export abstract class AbstractRepository<T extends AbstractEntity> {
 
   async find(filterQuery: FilterQuery<T>): Promise<T[]> {
     const document = await this.model.find(filterQuery).lean<T[]>();
+
     if (!document) {
       this.logger.warn(`Document not found with filterQuery`, filterQuery);
       throw new NotFoundException(
