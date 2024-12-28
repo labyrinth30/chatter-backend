@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException, UnprocessableEntityException } from '@nestjs/common';
+import {
+  Injectable,
+  UnauthorizedException,
+  UnprocessableEntityException,
+} from '@nestjs/common';
 import { CreateUserInput } from './dto/create-user.input';
 import * as bcrypt from 'bcrypt';
 import { UpdateUserInput } from './dto/update-user.input';
